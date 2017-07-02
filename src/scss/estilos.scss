@@ -1,9 +1,32 @@
 @import "medidas";
 @import "colors";
 
+@mixin display{
+  display: inline-block;
+}
+
+@mixin flex($content,$items){
+  display: flex;
+  justify-content: $content;
+  align-items: $items;
+}
+
+@mixin espacios($valor1,$valor2,$valor3,$valor4,$valor5){
+  padding-left  : $valor1;
+  padding-bottom: $valor2;
+  margin-bottom : $valor3;
+  margin-right  : $valor4;
+  margin-top    : $valor5;
+}
+
+@mixin enlace{
+  text-align: right;
+  color: #4285f4;
+}
+
 body{
   font-family: 'Open Sans', sans-serif;
-  padding: 0 2rem;
+  @include espacios(2rem);
   color: $color-text;
   box-sizing: border-box;
 }
@@ -13,23 +36,19 @@ hr{
 }
 
 header {
-  margin-bottom: 6rem;
+  @include espacios(none,6rem);
   .titulo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex(center,center);
     .imagen {
-      width: $medida-img;
+      width: $medida-logo;
     }
   }
 
   ul {
-    display: flex;
-    justify-content: center;
+    @include flex(center,none);
     list-style: none;
     li {
-      padding-bottom: 1rem;
-      margin-right: 2rem;
+      @include espacios(none,1rem,none,2rem);
       color: $color-lista;
     }
     li:hover {
@@ -41,39 +60,36 @@ header {
 
 .podcast{
   text-align: left;
-  margin-bottom: 6rem;
+  @include espacios(none,none,6rem,none);
   img {
     width: 72rem;
   }
   h1{
-    margin-top: 3rem;
+    @include espacios(none,none,none,none,3rem);
     font-size: 36px;
     color: $color-gray-dark;
   }
 }
 
-.container{
-  margin-bottom: 6rem;
+.news{
+  @include espacios(none,none,6rem,none,none);
   .newsfeed{
     cursor: pointer;
-    margin-right: 3rem;
-    display: inline-block;
+    @include espacios(none,none,none,3rem,none);
+    @include display;
     img{
-      width: 34rem;
+      width: $medida-img;
     }
   }
 
   .morenews{
     cursor: pointer;
-    display: inline-block;
+    @include display;
     .more{
-      text-align: right;
-      color: #4285f4;
+      @include enlace;
     }
     .card{
-      display: flex;
-      align-items: center;
-      justify-content: space-around;
+      @include flex(space-around,center);
       background-color:#e2e2e2;
       p:last-child{
         color: #4285f4;
@@ -82,3 +98,33 @@ header {
   }
 }
 
+.resources{
+  .post {
+    @include display;
+    img {
+      width: $medida-img;
+    }
+    .asana{
+      @include flex(flex-start,center);
+      img{
+        width: 4rem;
+        border-radius: 50%;
+      }
+    }
+    .medium {
+      @include flex(none,center);
+      .icon {
+        width: $medida-icon;
+      }
+    }
+  }
+}
+
+.recognition{
+  .brand {
+    @include display;
+    img {
+      width: 20rem;
+    }
+  }
+}

@@ -17,4 +17,6 @@ $breakpoints : (xs : 0, sm : 768px, md : 992px, lg : 1200px );
   @include column($name, $width);
 }
 
-$medida-img:22rem;
+$medida-logo:22rem;
+$medida-img: 34rem;
+$medida-icon:1.8rem;
