@@ -11,22 +11,24 @@
   align-items: $items;
 }
 
-@mixin espacios($valor1,$valor2,$valor3,$valor4,$valor5){
+@mixin espacios($valor1,$valor2,$valor3,$valor4,$valor5,$valor6){
   padding-left  : $valor1;
   padding-bottom: $valor2;
   margin-bottom : $valor3;
   margin-right  : $valor4;
   margin-top    : $valor5;
+  padding-right : $valor6;
 }
 
 @mixin enlace{
   text-align: right;
   color: #4285f4;
+  cursor: pointer;
 }
 
 body{
   font-family: 'Open Sans', sans-serif;
-  @include espacios(2rem);
+  @include espacios(2rem,none,none,none,none,2rem);
   color: $color-text;
   box-sizing: border-box;
 }
@@ -36,7 +38,7 @@ hr{
 }
 
 header {
-  @include espacios(none,6rem);
+  @include espacios(none,none,none,6rem,none,none);
   .titulo {
     @include flex(center,center);
     .imagen {
@@ -48,7 +50,7 @@ header {
     @include flex(center,none);
     list-style: none;
     li {
-      @include espacios(none,1rem,none,2rem);
+      @include espacios(none,1rem,none,2rem,none,none);
       color: $color-lista;
     }
     li:hover {
@@ -60,22 +62,25 @@ header {
 
 .podcast{
   text-align: left;
-  @include espacios(none,none,6rem,none);
+  @include espacios(none,none,6rem,none,none,none);
   img {
     width: 72rem;
   }
   h1{
-    @include espacios(none,none,none,none,3rem);
+    @include espacios(none,none,none,none,3rem,none);
     font-size: 36px;
     color: $color-gray-dark;
   }
 }
 
 .news{
-  @include espacios(none,none,6rem,none,none);
+  @include espacios(none,none,6rem,none,none,none);
   .newsfeed{
+    h4{
+      color: $color-fecha;
+    }
     cursor: pointer;
-    @include espacios(none,none,none,3rem,none);
+    @include espacios(none,none,none,3rem,none,none);
     @include display;
     img{
       width: $medida-img;
@@ -83,8 +88,10 @@ header {
   }
 
   .morenews{
-    cursor: pointer;
     @include display;
+    .fecha{
+      color: $color-fecha;
+    }
     .more{
       @include enlace;
     }
@@ -123,6 +130,9 @@ header {
 .recognition{
   .brand {
     @include display;
+    h4{
+      @include enlace;
+    }
     img {
       width: 20rem;
     }
