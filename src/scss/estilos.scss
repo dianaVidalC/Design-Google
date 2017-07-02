@@ -1,0 +1,84 @@
+@import "medidas";
+@import "colors";
+
+body{
+  font-family: 'Open Sans', sans-serif;
+  padding: 0 2rem;
+  color: $color-text;
+  box-sizing: border-box;
+}
+
+hr{
+  border: 2px solid #4285f4;
+}
+
+header {
+  margin-bottom: 6rem;
+  .titulo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .imagen {
+      width: $medida-img;
+    }
+  }
+
+  ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    li {
+      padding-bottom: 1rem;
+      margin-right: 2rem;
+      color: $color-lista;
+    }
+    li:hover {
+      border-bottom: 2px solid $color-hover;
+      cursor: pointer;
+    }
+  }
+}
+
+.podcast{
+  text-align: left;
+  margin-bottom: 6rem;
+  img {
+    width: 72rem;
+  }
+  h1{
+    margin-top: 3rem;
+    font-size: 36px;
+    color: $color-gray-dark;
+  }
+}
+
+.container{
+  margin-bottom: 6rem;
+  .newsfeed{
+    cursor: pointer;
+    margin-right: 3rem;
+    display: inline-block;
+    img{
+      width: 34rem;
+    }
+  }
+
+  .morenews{
+    cursor: pointer;
+    display: inline-block;
+    .more{
+      text-align: right;
+      color: #4285f4;
+    }
+    .card{
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      background-color:#e2e2e2;
+      p:last-child{
+        color: #4285f4;
+      }
+    }
+  }
+}
+
